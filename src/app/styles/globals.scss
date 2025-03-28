@@ -1,0 +1,100 @@
+// @use "tailwindcss";
+@use './reset.scss';
+@use "./variables.scss";
+@use "./themes.scss";
+@use "./fonts.scss";
+
+html {
+    font-size: 16px;
+    cursor: url('/icons/cursor.png'), auto;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+body {
+    @include themes.themed() {
+        background: themes.t("bg");
+        color: themes.t("text-color");
+        font-family: themes.t("font-family");
+    }
+    transition: 0.3s;
+    transition-timing-function: ease-out;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.main-content {
+    flex: 1;
+    
+    > * {
+        margin-left: variables.$gutter--md;
+        margin-right: variables.$gutter--md;
+    
+        &.full-width, .full-width {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+a {
+    text-decoration: underline;
+
+    &:hover {
+        color: variables.$color--secondary;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.transparent-button {
+    appearance: none;
+    border: none;
+    background: transparent;
+}
+
+.skip-nav-link {
+    position: absolute;
+    z-index: 1001;
+    top: 1rem;
+    left: 1rem;
+    transition: 0.1s;
+
+    &.hidden {
+        display: inline-block;
+        top: -2rem;
+    }
+}
+
+.blurb {
+    min-height: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/swiss-alps.jpg");
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("/swiss-alps.jpg");
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

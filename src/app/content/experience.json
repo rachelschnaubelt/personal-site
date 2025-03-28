@@ -1,0 +1,36 @@
+{
+    "positions": [
+        {
+            "title": "Senior Full Stack Developer",
+            "company": "Autodesk Inc",
+            "location": "Remote",
+            "startingdate": "October 2021",
+            "endingdate": "Present",
+            "highlights": [
+                "Develop custom components for Autodesk.com and dynamic email templates using Java, JavaScript, HTML/Sightly, CSS/SASS, AEM, React, and other technologies",
+                "Collaborate with marketing teams to develop and optimize A/B tests on user-facing, interactive experiences, achieving improvements in conversion (up to 7%), billings (up to 24%), and engagement (up to 12%)",
+                "Test developed code using testing frameworks including JUnit, Jest, and Cypress for unit, integration, and end-to-end testing, maintaining code coverage of 90% or higher",
+                "Perform PR reviews for teammates, providing feedback on best practices to uphold code quality standards",
+                "Optimize internal tools for content producers and developers, streamlining workflows and accelerating the delivery of engaging, user-focused features",
+                "Act as de facto tech lead on 2 major projects, making technical decisions and coordinating with product, design, UX, and content-production teams",
+                "Champion cross-functional collaboration by leading agile ceremonies for a team of 12 developers and stakeholders, establishing connections between organizations, and incorporating early stakeholder input",
+                "Establish a knowledge base repository to facilitate information and documentation sharing between developers, with 6300+ views across 85 pages with 22 unique contributors",
+                "Mentor 4 junior developers in modern development practices and career growth",
+                "Organize and execute communication campaigns, event planning, member surveys, volunteer coordination, and advocacy as a board member of the LGBTQ+ employee resource group"
+            ]
+        },
+        {
+            "title": "Full Stack Developer",
+            "company": "Luckie & Company",
+            "location": "Atlanta, GA & Remote",
+            "startingdate": "August 2020",
+            "endingdate": "October 2021",
+            "highlights": [
+                "Developed mobile-first components for React websites on WordPress using GraphQL and Gatsby",
+                "Used Express to develop an API responsible for the migration of 3000+ blog posts",
+                "Built and styled responsive customer-facing web pages with modern CSS and JavaScript, adhering to strict regulatory requirements for design, content, and accessibility",
+                "Collaborated with UX and design teams to determine project strategy"
+            ]
+        }
+    ]
+}

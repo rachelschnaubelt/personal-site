@@ -1,0 +1,44 @@
+.list-item {
+    span {
+        display: grid;
+        grid-template-columns: 1rem 1fr;
+        column-gap: 0.5rem;
+
+        &::before {
+            content: "";
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-top: 0.3rem;
+        }
+    }
+
+    &.code {
+        span::before {
+            background-image: url(/icons/code.svg);
+        }
+    }
+
+    &.heart {
+        span::before {
+            background-image: url(/icons/heart.svg);
+        }
+    }
+
+    &.terminal {
+        span::before {
+            background-image: url(/icons/terminal.svg);
+        }
+    }
+
+    &.user {
+        span::before {
+            background-image: url(/icons/user.svg);
+        }
+    }
+
+    &.users {
+        span::before {
+            background-image: url(/icons/users.svg);
+        }
+    }
+}

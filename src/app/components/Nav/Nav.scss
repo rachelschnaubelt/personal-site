@@ -1,0 +1,60 @@
+.nav {
+    &__settings-button {
+
+        img {
+            transition: 0.4s;
+            width: 1rem;
+        }
+
+        &:hover {
+            img {
+                transform: rotate(-30deg);
+            }
+        }
+
+        &.rotate {
+            img {
+                animation-name: rotate;
+                animation-duration: 1.5s;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+    }
+
+    &__social-links {
+        li a {
+            display: flex;
+            column-gap: 0.25rem;
+        }
+
+        img {
+            width: 1rem;
+        }
+    }
+
+    .theme-toggle {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+
+        img {
+            width: 2rem;
+        }
+    }
+
+
+    @keyframes rotate {
+        from {
+            transform: rotate(-30deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

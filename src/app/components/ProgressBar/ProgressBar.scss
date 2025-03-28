@@ -1,0 +1,13 @@
+.progress-bar {
+    height: 0.2rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    &__completed {
+        position: inherit;
+        height: 100%;
+        background-color: white;
+        max-width: 100%;
+    }
+}

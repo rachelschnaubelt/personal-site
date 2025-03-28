@@ -1,0 +1,22 @@
+@use "../../styles/variables.scss";
+
+.role {
+    &__details {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__highlights {
+        padding-left: 0.75rem;
+    }
+
+    &__highlight {
+        // opacity: 0.9;
+        line-height: 1.5rem;
+        // &:hover {
+        //     // font-size: 102%;
+        //     transition: 0.3s;
+        //     opacity: 1;
+        // }
+    }
+}

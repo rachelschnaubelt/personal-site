@@ -1,0 +1,48 @@
+@use './variables.scss';
+@use "sass:map";
+
+$theme-map: null;
+
+$themes: (
+        default: (
+          bg: variables.$gradient--light,
+          text-color: variables.$color--dark,
+          header-bg: variables.$header--bg,
+          border-color: variables.$color--dark,
+          shadow: variables.$shadow--light,
+          light-dark: variables.$color--light
+        ),
+        dark: (
+          bg: variables.$gradient--dark,
+          text-color: variables.$color--light,
+          header-bg: variables.$bg-light-transparent,
+          border-color: variables.$color--light,
+          shadow: variables.$shadow--dark,
+          light-dark: variables.$color--dark
+        ),
+        font-default: (
+          font-family: variables.$font-default
+        ),
+        font-dyslexic: (
+          font-family: variables.$font-dyslexic
+        )
+);
+
+@mixin themed() {
+    @each $theme, $map in $themes {
+      .theme--#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map.get(map.get($themes, $theme), '#{$key}');
+          $theme-map: map.merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  @function t($key) {
+    @return map.get($theme-map, $key);
+  }
+

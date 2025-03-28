@@ -1,0 +1,49 @@
+// Breakpoints
+$breakpoint--sm: 360px;
+$breakpoint--md: 768px;
+$breakpoint--lg: 1024px;
+$breakpoint--xl: 1440px;
+
+// Colors
+
+$color--light: #D8DFE2;
+$color--dark: #220C10;
+$color--primary: #005500;
+$color--secondary: #77CBB9;
+$color--tertiary: #75B8C8;
+$bg-light-transparent: #d8dfe22f;
+$bg-dark-transparent: #220c102e;
+$color--white: #FFF;
+$color--black: #000;
+$color--transparent: transparent;
+$gradient--light: linear-gradient(10deg, $color--secondary, $color--light);
+$gradient--dark: linear-gradient(10deg, $color--black, $color--dark);
+$shadow--light: 0.15rem 0.2rem 0.7rem #220c109e;
+$shadow--dark: 0 0 1.5rem 0.6rem #d8dfe28a;
+$header--bg: #ffffff17;
+
+$color-light: #5497AA;
+$color-medium: #006A94;
+$color-dark: #006A94;
+$color-secondary: #FEAB83;
+$color-tertiary: #FFD686;
+
+$color-light: #4EADB9;
+$color-medium: #327482;
+$color-dark: #173F49;
+$color-secondary: #34342E;
+$color-tertiary: #7D7D7C;
+
+$color-light: #40494a;
+$color-medium: #596143;
+$color-dark: #737767;
+$color-secondary: #94746c;
+$color-tertiary: #1c2e44;
+
+
+// Spacing
+$gutter--md: 2rem;
+
+// Fonts
+$font-default: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+$font-dyslexic: 'OpenDyslexic', 'Comic Sans', Arial, sans-serif;
