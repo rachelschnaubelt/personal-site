@@ -1,21 +1,37 @@
 import Link from "next/link";
 import Nav from "../Nav/Nav";
 import "./Header.scss";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Heading from "../Heading/Heading";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 interface HeaderProps {
   setTheme: (value: boolean) => void,
   setTemp: (value: boolean) => void,
-  setFont: React.ChangeEventHandler<HTMLSelectElement >,
-  isScrolled: boolean
+  setFont: React.ChangeEventHandler<HTMLSelectElement >
 }
 
-export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont , isScrolled}: HeaderProps) {
+export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont}: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  
+  useEffect(() => {
+
+    const handleScroll = (event: Event) => {
+      if(window.scrollY > 0) {
+        setIsScrolled(true);
+      }
+      else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <header ref={headerRef} className={`header ${isScrolled ? "scrolled" : ""}`}>
@@ -27,7 +43,7 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
       {/* <div className="glass-effect-wrapper">
         <div className="glass-effect"></div>
       </div> */}
-      {/* <ProgressBar /> */}
+      <ProgressBar />
         
     </header>
   );

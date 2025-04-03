@@ -33,6 +33,7 @@
         text-shadow: 2px 2px 4px #0000009e;
         transition: 0.4s;
         text-align: center;
+        letter-spacing: 0.1rem;
     }
 
     // > a {
@@ -72,10 +73,17 @@
     //       }
     // }
 
-    // .progress-bar {
-    //     height: 0;
-    //     overflow: hidden;
-    // }
+    .progress-bar {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.2s;
+    }
+
+    &.scrolled {
+        .progress-bar {
+            height: 0.2rem;
+        }
+    }
     
     // &.sticky {
     //     border-radius: 0;
@@ -85,10 +93,7 @@
         
     //     // calc(100vw - (100vw - 100%))
 
-    //     .progress-bar {
-    //         height: 0.2rem;
-    //     }
-    //     // top: 0;
+    
 
 
     //     // @media screen and (min-width: variables.$breakpoint--md) {

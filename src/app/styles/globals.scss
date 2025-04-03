@@ -8,7 +8,8 @@ html {
     font-size: 16px;
     // cursor: url('/icons/cursor.png'), auto;
     overflow: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
+    scrollbar-color: variables.$color-medium--cool variables.$color-dark--cool;
 }
 
 body {
@@ -18,8 +19,7 @@ body {
         font-family: themes.t("font-family");
     }
     min-height: 100vh;
-    height: 100vh;
-    overflow: hidden;
+    margin-right: calc(-1*(100vw - 100%));
     display: flex;
     flex-direction: column;
     position: relative;
@@ -29,21 +29,24 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-width: 100vw;
-    max-height: 100vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    // max-width: 100vw;
+    // max-height: 100vh;
     padding-bottom: 5rem;
-    scrollbar-color: variables.$color-medium--cool variables.$color-dark--cool;
-    scrollbar-gutter: stable both-edges;
+    // scrollbar-color: variables.$color-medium--cool variables.$color-dark--cool;
+    // scrollbar-gutter: stable both-edges;
+    margin-bottom: 3.5rem;
     
     &::after {
         content: '';
     }
 
     > * {
-        margin-left: variables.$gutter--md;
-        margin-right: variables.$gutter--md;
+        margin-left: variables.$gutter--sm;
+        margin-right: variables.$gutter--sm;
     
         &.full-width, .full-width {
             margin-left: 0;
