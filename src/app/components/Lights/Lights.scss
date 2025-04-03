@@ -1,0 +1,101 @@
+@use 'sass:math';
+@use 'sass:list';
+
+.lights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    position: fixed;
+    inset: 0;
+
+    &.pause {
+        .x, .y {
+            animation-play-state: paused !important;
+        }
+    }
+
+    @media (prefers-reduced-motion) {
+        .x, .y {
+            animation-play-state: paused !important;
+        }
+
+        &__pause-button {
+            display: none;
+        }
+    }
+
+    &__pause-button {
+        position: absolute;
+        bottom: 4rem;
+        right: 0.3rem;
+        background: none;
+        color: white;
+        border: none;
+        padding: 0;
+        border-radius: 100%;
+    }
+
+    @for $i from 0 to 30 {
+
+        /* Configuration variables for the animation */
+        $x-offset: #{math.random(100) + 25}px;
+        $y-offset: #{math.random(50) + 25}px;
+        $animation-duration: calc(math.random(400) / 100 + 5);
+        $blur: #{math.random(3)}px;
+        $size: #{math.random(30) + 25}px;
+        $opacity: calc((math.random(10) + 20) / 100);
+        $hue-rotate: #{math.random(135) - 80}deg;
+        $direction: list.nth(alternate alternate-reverse, math.random(2));
+        $scale-change: calc((math.random(3) + 7) / 10);
+        
+    .light-#{$i} {
+        .x {
+            --name: horizontal-#{$i};
+            --duration: #{$animation-duration}s;
+            --delay: calc(-0.25 * #{$animation-duration}s);
+            --direction: $direction;
+
+            width: fit-content;
+
+            .light {
+                background: gold;
+                width: $size;
+                height: $size;
+                border-radius: 100%;
+                opacity: $opacity;
+                filter: blur($blur) hue-rotate($hue-rotate);
+            }
+        }
+        .y {
+            --name: vertical-#{$i};
+            --duration: calc(0.5 * #{$animation-duration}s);
+            --delay: 0s;
+            --direction: $direction;
+
+            justify-content: center;
+        }
+        
+        .x, .y {
+            display: flex;
+            --animation: var(--duration) ease-in-out var(--delay) alternate infinite var(--name);
+        }
+        
+        @keyframes vertical-#{$i} {
+            from { transform: translateY(calc(-1 * $y-offset) scale(1)); }
+            to   { transform: translateY($x-offset) scale($scale-change); }
+        }
+        @keyframes horizontal-#{$i} {
+            from { transform: translateX(calc(-1 * $x-offset)); }
+            to   { transform: translateX($x-offset); }
+        }
+
+        .x, .y {
+            animation: var(--animation);
+            animation-direction: $direction;
+        }
+    }
+
+    }
+}

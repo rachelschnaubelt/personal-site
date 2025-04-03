@@ -1,3 +1,5 @@
+@use "../../styles/themes.scss";
+
 .progress-bar {
     height: 0.2rem;
     width: 100%;
@@ -5,9 +7,12 @@
     bottom: 0;
 
     &__completed {
+        @include themes.themed() {
+            background-color: themes.t("progress-bar");
+        }
+
         position: inherit;
         height: 100%;
-        background-color: white;
         max-width: 100%;
     }
 }

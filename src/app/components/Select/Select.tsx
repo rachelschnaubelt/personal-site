@@ -1,7 +1,7 @@
 interface SelectProps {
     label: string,
     options: {value: string, text: string}[],
-    onChange: React.ChangeEventHandler<HTMLSelectElement >
+    onChange?: React.ChangeEventHandler<HTMLSelectElement >
 }
 
 export default function Select({label, options, onChange}: SelectProps) {

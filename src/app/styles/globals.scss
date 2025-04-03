@@ -6,9 +6,9 @@
 
 html {
     font-size: 16px;
-    cursor: url('/icons/cursor.png'), auto;
+    // cursor: url('/icons/cursor.png'), auto;
     overflow: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 body {
@@ -17,20 +17,30 @@ body {
         color: themes.t("text-color");
         font-family: themes.t("font-family");
     }
-    transition: 0.3s;
-    transition-timing-function: ease-out;
-    max-width: 1600px;
-    margin: 0 auto;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     position: relative;
-    padding-top: 2rem;
 }
 
 .main-content {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 100vw;
+    max-height: 100vh;
+    padding-bottom: 5rem;
+    scrollbar-color: variables.$color-medium--cool variables.$color-dark--cool;
+    scrollbar-gutter: stable both-edges;
     
+    &::after {
+        content: '';
+    }
+
     > * {
         margin-left: variables.$gutter--md;
         margin-right: variables.$gutter--md;
@@ -42,12 +52,54 @@ body {
     }
 }
 
-a {
-    text-decoration: underline;
+.page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 
-    &:hover {
-        color: variables.$color--secondary;
+a {
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: color 0.2s ease;
+    
+    @include themes.themed() {
+        color: themes.t("link-color");
+
+        &:visited {
+            color: themes.t("link-visited-color");
+        }
     }
+
+    // &::before {  
+    //     transform: scaleX(0);
+    //     transform-origin: bottom right;
+    //     content: "";
+    //     display: block;
+    //     position: absolute;
+    //     inset: 0;
+    //     @include themes.themed() {
+    //         background-color: themes.t("link-highlight");
+    //     }
+    //     z-index: -1;
+    //     transition: transform .2s ease;
+    //   }
+      
+    //   &:hover {
+    //     @include themes.themed() {
+    //         color: themes.t("link-hover-text");
+    //     }
+    //       &::before {
+    //         transform: scaleX(1);
+    //         transform-origin: bottom left;
+    //       }
+    //   }
+
+}
+
+p {
+    margin-bottom: 0.5rem;
 }
 
 .hidden {
@@ -72,29 +124,3 @@ a {
         top: -2rem;
     }
 }
-
-.blurb {
-    min-height: 50rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("/swiss-alps.jpg");
-}
-
-.parallax {
-    /* The image used */
-    background-image: url("/swiss-alps.jpg");
-  
-    /* Set a specific height */
-    min-height: 500px; 
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }

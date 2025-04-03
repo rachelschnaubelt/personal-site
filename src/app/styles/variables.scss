@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // Breakpoints
 $breakpoint--sm: 360px;
 $breakpoint--md: 768px;
@@ -6,40 +8,74 @@ $breakpoint--xl: 1440px;
 
 // Colors
 
-$color--light: #D8DFE2;
-$color--dark: #220C10;
-$color--primary: #005500;
-$color--secondary: #77CBB9;
-$color--tertiary: #75B8C8;
-$bg-light-transparent: #d8dfe22f;
-$bg-dark-transparent: #220c102e;
-$color--white: #FFF;
-$color--black: #000;
-$color--transparent: transparent;
-$gradient--light: linear-gradient(10deg, $color--secondary, $color--light);
-$gradient--dark: linear-gradient(10deg, $color--black, $color--dark);
-$shadow--light: 0.15rem 0.2rem 0.7rem #220c109e;
-$shadow--dark: 0 0 1.5rem 0.6rem #d8dfe28a;
-$header--bg: #ffffff17;
+// $color-light: #aaccd5;
+// $color-medium: #006A94;
+// $color-dark: #006A94;
+// $color-secondary: #FEAB83;
+// $color-tertiary: #FFD686;
 
-$color-light: #5497AA;
-$color-medium: #006A94;
-$color-dark: #006A94;
-$color-secondary: #FEAB83;
-$color-tertiary: #FFD686;
+$color-black: #000;
+$color-white: #fdffff;
+$color-gray: #D4F3F5;
 
-$color-light: #4EADB9;
-$color-medium: #327482;
-$color-dark: #173F49;
-$color-secondary: #34342E;
-$color-tertiary: #7D7D7C;
+$color-light--cool: #CAE5D7;
+$color-medium--cool: #47AC84;
+$color-dark--cool: #142726;
+// $color-secondary--cool: #59B4DC;
+// $color-tertiary--cool: #273D6C;
+$color-secondary--cool: #01497A;
+$color-tertiary--cool: #ab1e35;
 
-$color-light: #40494a;
-$color-medium: #596143;
-$color-dark: #737767;
-$color-secondary: #94746c;
-$color-tertiary: #1c2e44;
+$color-light--warm: #FDCE9B;
+$color-medium--warm: #E2624F;
+$color-dark--warm: #50170d;
+$color-secondary--warm: #F8B436;
+$color-tertiary--warm: #273D6C;
 
+// gradients
+
+$bg-gradient--cool: linear-gradient(
+    10deg,
+    $color-medium--cool,
+    $color-light--cool
+);
+
+$bg-gradient--warm: linear-gradient(
+    10deg,
+    $color-medium--warm,
+    $color-light--warm
+);
+
+$bg-gradient--cool--dark: linear-gradient(
+    10deg,
+    $color-black,
+    $color-dark--cool
+);
+
+$bg-gradient--warm--dark: linear-gradient(
+    10deg,
+    $color-black,
+    $color-dark--warm
+);
+
+$rainbow-gradient: linear-gradient(
+    65deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+);
+
+// shadows
+
+$shadow-modal: 0.15rem 0.2rem 0.7rem $color-black;
 
 // Spacing
 $gutter--md: 2rem;

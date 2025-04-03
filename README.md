@@ -1,3 +1,9 @@
+## Resources used:
+https://codepen.io/DSlatkin/pen/MzRJEO/left
+https://muffinman.io/blog/sass-random-and-circle-animation/
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties
+https://chenhuijing.com/blog/flexbox-and-padding/
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

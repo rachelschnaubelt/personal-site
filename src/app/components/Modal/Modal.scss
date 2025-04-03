@@ -1,4 +1,5 @@
 @use "../../styles/variables.scss";
+@use "../../styles/themes.scss";
 
 .modal {
     position: fixed;
@@ -8,7 +9,10 @@
     right: 0;
 
     &__inner {
-        background-color: white;
+        @include themes.themed() {
+            background-color: themes.t("modal-bg");
+            box-shadow: themes.t('modal-shadow');
+        }
         position: absolute;
         top: 50%;
         left: 50%;
@@ -16,7 +20,6 @@
         z-index: 2;
         padding: 1.5rem;
         border-radius: 0.5rem;
-        box-shadow: variables.$shadow--light;
     }
 
     &__content {
@@ -24,7 +27,9 @@
     }
 
     &__background {
-        background-color: #0000003b;  
+        @include themes.themed() {
+            background-color: themes.t("modal-overlay");  
+        }
         position: absolute;
         top: 0;
         bottom: 0;

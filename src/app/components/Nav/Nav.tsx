@@ -5,14 +5,17 @@ import Toggle from "../Toggle/Toggle";
 import "./Nav.scss";
 import Link from 'next/link';
 import Select from "../Select/Select";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAddressCard, faBriefcase, faStar } from "@fortawesome/free-solid-svg-icons";
 
 
 interface NavProps {
-  setTheme: (value: boolean) => void,
-  setFont: React.ChangeEventHandler<HTMLSelectElement >
+  setTheme?: (value: boolean) => void,
+  setTemp?: (value: boolean) => void,
+  setFont?: React.ChangeEventHandler<HTMLSelectElement >
 }
 
-export default function Nav({ setTheme = () => { }, setFont }: NavProps) {
+export default function Nav({ setTheme = () => { }, setTemp = () => { }, setFont }: NavProps) {
   const [settingsModalState, setSettingsModalState] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -30,7 +33,13 @@ export default function Nav({ setTheme = () => { }, setFont }: NavProps) {
 
   return (
     <nav className="nav">
-      <ul className="nav__social-links">
+      <ul>
+        <li><Link href="/experience"><FontAwesomeIcon icon={faBriefcase} /></Link></li>
+        <li><Link href="/skills"><FontAwesomeIcon icon={faStar} /></Link></li>
+        <li><Link href="/about"><FontAwesomeIcon icon={faAddressCard} /></Link></li>
+      </ul>
+
+      {/* <ul className="nav__social-links">
         <li>
           <Link href="https://www.linkedin.com/in/rachelschnaubelt/" target="_blank">
             <img src="/icons/user.svg" alt="User Icon" />LinkedIn
@@ -56,13 +65,18 @@ export default function Nav({ setTheme = () => { }, setFont }: NavProps) {
         </li>
       </ul>
       <Modal state={settingsModalState} handleClose={handleCloseModal}>
+        <div className="temp-toggle">
+          <span>cool</span>
+          <Toggle onChange={setTemp} />
+          <span>warm</span>
+        </div>
         <div className="theme-toggle">
           <img src="/icons/sunrise.svg" alt="Sunrise icon"/>
           <Toggle onChange={setTheme} />
           <img  src="/icons/moon-stars.svg" alt="Moon and stars icon"/>
         </div>
         <Select label="Select Font" options={[{text: "Default", value: "default"}, {text: "Open Dyslexic", value: "dyslexic"}]} onChange={setFont}/>
-      </Modal>
+      </Modal> */}
     </nav>
   );
 }

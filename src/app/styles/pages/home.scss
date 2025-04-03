@@ -1,0 +1,27 @@
+.page__home {
+    .blurb {
+        background-color: #0003;
+        z-index: 5;
+        position: relative;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        backdrop-filter: blur(2rem);
+        justify-self: center;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+    // .parallax {
+    //     /* The image used */
+    //     background-image: url("/swiss-alps.jpg");
+      
+    //     /* Set a specific height */
+    //     min-height: 500px; 
+      
+    //     /* Create the parallax scrolling effect */
+    //     background-attachment: fixed;
+    //     background-position: center;
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //   }
+}

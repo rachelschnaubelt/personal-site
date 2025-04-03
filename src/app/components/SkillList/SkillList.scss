@@ -1,3 +1,6 @@
+@use "../../styles/variables.scss";
+@use "../../styles/themes.scss";
+
 @property --border-angle {
     syntax: '<angle>';
     inherits: false;
@@ -5,6 +8,9 @@
 }
 
 .skill-list {
+    @include themes.themed() {
+        --border-color: themes.t('button-border')
+    }
 
     &__list {
         display: flex;
@@ -23,6 +29,11 @@
         align-items: center;
         justify-content: center;
 
+        @media (prefers-reduced-motion) {
+            left: 0;
+            transition: none;
+        }
+
         @for $i from 1 through 30 {
             &:nth-child(#{$i}) {
                 transition-delay: $i * 0.05s;
@@ -36,7 +47,10 @@
             inset: 0;
             --border-angle:0deg;
             transition:--border-angle 0.5s;
-            background: conic-gradient(black var(--border-angle), transparent var(--border-angle) 360deg);
+            @include themes.themed() {
+                background: themes.t('button-border');
+                // background: conic-gradient(themes.t('button-border') var(--border-angle), transparent var(--border-angle) 360deg);
+            }
 
         }
 
@@ -53,20 +67,7 @@
             box-sizing: border-box;
             border-radius: calc(infinity *1px);
             margin: 2px;
-            background: linear-gradient(
-                65deg,
-                rgba(255, 0, 0, 1) 0%,
-                rgba(255, 154, 0, 1) 10%,
-                rgba(208, 222, 33, 1) 20%,
-                rgba(79, 220, 74, 1) 30%,
-                rgba(63, 218, 216, 1) 40%,
-                rgba(47, 201, 226, 1) 50%,
-                rgba(28, 127, 238, 1) 60%,
-                rgba(95, 21, 242, 1) 70%,
-                rgba(186, 12, 248, 1) 80%,
-                rgba(251, 7, 217, 1) 90%,
-                rgba(255, 0, 0, 1) 100%
-            );
+            background: variables.$rainbow-gradient;
             background-size: 200%;
             background-position: left;
             background-attachment: fixed;

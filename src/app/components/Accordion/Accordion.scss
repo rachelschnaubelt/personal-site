@@ -1,0 +1,30 @@
+.accordion {
+    &__head {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+        cursor: pointer;
+    }
+
+    &__content {
+        transition: 0.4s;
+        overflow: hidden;
+    }
+
+    &__chevron {
+        transition: 0.4s;
+    }
+
+    &.closed {
+        .accordion {
+
+            &__chevron {
+                transform: rotate(-90deg);
+            }
+            
+            &__content {
+                height: 0 !important;
+            }
+        }
+    }
+}

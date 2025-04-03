@@ -8,12 +8,13 @@ interface ButtonProps {
     className?: string,
     onClick?: () => void,
     ref?: React.RefObject<HTMLButtonElement | null>,
-    link?: string
+    link?: string,
+    title?: string
 }
 
-const Button = ({children, type="button", label, className, onClick, ref, link}: ButtonProps) => {
+const Button = ({children, type="button", label, className, onClick, ref, link, title}: ButtonProps) => {
     return (
-      <button type={type} aria-label={label} onClick={onClick} className={`button ${className}`} ref={ref}>
+      <button type={type} aria-label={label} onClick={onClick} className={`button ${className}`} ref={ref} title={title}>
         {link ? 
           (<Link href={link}>
             {children}

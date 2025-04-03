@@ -1,7 +1,10 @@
 @use "../../styles/variables.scss";
 
 .role {
+    margin-top: 1.5rem;
+
     &__details {
+        margin-top: 0.5rem;
         display: flex;
         justify-content: space-between;
     }

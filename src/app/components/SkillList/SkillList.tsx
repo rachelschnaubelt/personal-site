@@ -16,7 +16,7 @@ export default function SkillList({item}: SkillListProps) {
 
   const options: IntersectionObserverInit = {
     root: skillListRef.current,
-    threshold: 0.8,
+    threshold: 0.2,
   };
   
   useEffect(() => {

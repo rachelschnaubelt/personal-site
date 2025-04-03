@@ -7,41 +7,27 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 
 interface HeaderProps {
   setTheme: (value: boolean) => void,
-  setFont: React.ChangeEventHandler<HTMLSelectElement >
+  setTemp: (value: boolean) => void,
+  setFont: React.ChangeEventHandler<HTMLSelectElement >,
+  isScrolled: boolean
 }
 
-export default function Header({ setTheme = () => { }, setFont }: HeaderProps) {
+export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont , isScrolled}: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const handleScroll = (event: Event) => {
-      let headerTop = headerRef.current?.getBoundingClientRect().top;
-      if(headerTop && headerTop >= 0) {
-        headerRef.current?.classList.remove('sticky');
-      }
-      else {
-        headerRef.current?.classList.add('sticky');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  
 
   return (
-    <header ref={headerRef} className="header">
+    <header ref={headerRef} className={`header ${isScrolled ? "scrolled" : ""}`}>
       <Link href="/">
         <Heading className="header__text" level={1} text="Rachel Schnaubelt" />
       </Link>
 
-      <Nav setTheme={setTheme} setFont={setFont} />
-      <div className="glass-effect-wrapper">
+      {/* <Nav setTheme={setTheme} setTemp={setTemp} setFont={setFont} /> */}
+      {/* <div className="glass-effect-wrapper">
         <div className="glass-effect"></div>
-      </div>
-      <ProgressBar />
+      </div> */}
+      {/* <ProgressBar /> */}
         
     </header>
   );

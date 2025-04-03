@@ -15,7 +15,9 @@
     border-radius: calc(infinity * 1px);
 
     .slider {
-        background-color: variables.$color--light;
+        @include themes.themed() {
+            background-color: themes.t("toggle-bg");
+        }
         display: flex;
         align-items: center;
         position: absolute;
@@ -25,24 +27,32 @@
         border-radius: calc(infinity * 1px);
 
         &::before {
+            @include themes.themed() {
+                background-color: themes.t("toggle-slider");
+                border: 0.0625rem solid themes.t('toggle-border');
+            }
+
             content: '';
             position: relative;
             height: 1rem;
             width: 1rem;
             left: 0.125rem;
             transition: 0.4s;
-            background-color: variables.$color--white;
-            border: 0.0625rem solid variables.$color--dark;
             border-radius: 100%;
         }
     }
     
     input:checked + .slider {
-        background-color: variables.$color--dark;
+        @include themes.themed() {
+            background-color: themes.t("toggle-bg-checked");
+        }    
     }
     
     input:focus + .slider {
-        box-shadow: 0 0 0.0625rem variables.$color--dark;
+        @include themes.themed() {
+            background-color: themes.t("toggle-bg-checked");
+            box-shadow: 0 0 0.0625rem t('toggle-bg-checked');
+        } 
     }
     
     input:checked + .slider:before {
