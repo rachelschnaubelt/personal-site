@@ -1,29 +1,39 @@
+"use client";
+
 import Link from "next/link";
 import Nav from "../Nav/Nav";
 import "./Header.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "../Heading/Heading";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
   setTheme: (value: boolean) => void,
   setTemp: (value: boolean) => void,
-  setFont: React.ChangeEventHandler<HTMLSelectElement >
+  setFont: React.ChangeEventHandler<HTMLSelectElement>
 }
 
-export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont}: HeaderProps) {
-  const headerRef = useRef<HTMLElement>(null);
+export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [bodyHeight, setBodyHeight] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const pathName = usePathname();
 
   useEffect(() => {
 
-    const handleScroll = (event: Event) => {
-      if(window.scrollY > 0) {
+    setBodyHeight(document.body.scrollHeight);
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 0) {
         setIsScrolled(true);
       }
       else {
         setIsScrolled(false);
       }
+
+      setScrollPosition(scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -31,20 +41,32 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [pathName]);
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      for(const entry of entries) {
+        setBodyHeight(entry.contentRect.height);
+      }
+    });
+
+    resizeObserver.observe(document.body);
+  }, [])
 
   return (
-    <header ref={headerRef} className={`header ${isScrolled ? "scrolled" : ""}`}>
+    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <Link href="/">
         <Heading className="header__text" level={1} text="Rachel Schnaubelt" />
       </Link>
+      <ProgressBar />
+      <div className="header__background" style={{"height": `${bodyHeight}px`, "top": `-${scrollPosition}px`}}>
+      </div>
 
       {/* <Nav setTheme={setTheme} setTemp={setTemp} setFont={setFont} /> */}
       {/* <div className="glass-effect-wrapper">
         <div className="glass-effect"></div>
       </div> */}
-      <ProgressBar />
-        
+
     </header>
   );
 }
