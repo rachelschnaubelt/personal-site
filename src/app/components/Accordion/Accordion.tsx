@@ -20,11 +20,23 @@ export default function Accordion({heading, children}: AccordionProps) {
     }
 
     useEffect(() => {
-        const contentDiv = contentRef.current;
-        if(contentDiv) {
-            const height = contentDiv?.clientHeight;
-            contentDiv.style.height = `${height}px`;
-        }
+
+        const handleResize = () => {
+            const contentDiv = contentRef.current;
+            if(contentDiv) {
+                contentDiv.style.height = "auto";
+                const height = contentDiv?.clientHeight;
+                contentDiv.style.height = height + "px";
+            }
+          };
+      
+          handleResize();
+
+          window.addEventListener('resize', handleResize);
+      
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          };
     }, [])
   
 
