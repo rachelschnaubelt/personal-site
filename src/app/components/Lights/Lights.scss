@@ -42,7 +42,7 @@
         /* Configuration variables for the animation */
         $x-offset: #{math.random(100) + 25}px;
         $y-offset: #{math.random(50) + 25}px;
-        $animation-duration: calc(math.random(400) / 100 + 5);
+        $animation-duration: calc(math.random(400) / 150 + 10);
         $blur: #{math.random(3)}px;
         $size: #{math.random(30) + 25}px;
         $opacity: calc((math.random(10) + 20) / 100);

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Accordion.scss";
 import Heading from "../Heading/Heading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 interface AccordionProps {
     heading: string,
@@ -25,7 +25,7 @@ export default function Accordion({heading, children}: AccordionProps) {
             const contentDiv = contentRef.current;
             if(contentDiv) {
                 contentDiv.style.height = "auto";
-                const height = contentDiv?.clientHeight;
+                const height = contentDiv?.scrollHeight;
                 contentDiv.style.height = height + "px";
             }
           };

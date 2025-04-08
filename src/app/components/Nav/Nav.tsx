@@ -34,9 +34,9 @@ export default function Nav({ setTheme = () => { }, setTemp = () => { }, setFont
   return (
     <nav className="nav">
       <ul>
-        <li><Link href="/experience"><FontAwesomeIcon icon={faBriefcase} /></Link></li>
-        <li><Link href="/skills"><FontAwesomeIcon icon={faStar} /></Link></li>
-        <li><Link href="/about"><FontAwesomeIcon icon={faAddressCard} /></Link></li>
+        <li><Link className="nav-link" href="/experience"><FontAwesomeIcon className="nav-link__icon" icon={faBriefcase} /><span className="nav-link__text">Experience</span></Link></li>
+        <li><Link className="nav-link" href="/skills"><FontAwesomeIcon className="nav-link__icon" icon={faStar} /><span className="nav-link__text">Skills</span></Link></li>
+        <li><Link className="nav-link" href="/about"><FontAwesomeIcon className="nav-link__icon" icon={faAddressCard} /><span className="nav-link__text">About</span></Link></li>
       </ul>
 
       {/* <ul className="nav__social-links">

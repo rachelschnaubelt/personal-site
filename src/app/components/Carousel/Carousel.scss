@@ -1,0 +1,90 @@
+@use "../../styles/variables.scss";
+
+.carousel {
+
+    &__body {
+        display: flex;
+        position: relative;
+    }
+
+    &__button {
+        background: none;
+        color: variables.$color-medium--cool;
+        border: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &--prev {
+            left: -1.75rem;
+        }
+
+        &--next {
+            right: -1.75rem;
+        }
+    }
+
+    &__item {
+        transform: scaleX(0);
+        overflow: hidden;
+        transition: transform 0.4s;
+        width: 100%;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+
+        &--active {
+            transform: scaleX(1);
+        }
+    }
+
+    &__items {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    &__bullets {
+        display: flex;
+        justify-content: center;
+        column-gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    &__bullet {
+        background: none;
+        color: variables.$color-medium--cool;
+        border: none;
+        padding: 0;
+        border-radius: calc(infinity * 1px);
+        transition: color 0.4s;
+
+        &--active {
+            color: variables.$color-light--cool;
+        }
+    }
+
+    &__move {
+        &--right {
+            .carousel {
+                &__item {
+                    transform-origin: left;
+                    &--active {
+                        transform-origin: right;
+                    }
+                }
+            }
+        }
+
+        &--left {
+            .carousel {
+                &__item {
+                    transform-origin: right;
+                    &--active {
+                        transform-origin: left;
+                    }
+                }
+            }
+        }
+    }
+}

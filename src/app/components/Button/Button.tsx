@@ -14,7 +14,7 @@ interface ButtonProps {
 
 const Button = ({children, type="button", label, className, onClick, ref, link, title}: ButtonProps) => {
     return (
-      <button type={type} aria-label={label} onClick={onClick} className={`button ${className}`} ref={ref} title={title}>
+      <button type={type} aria-label={label} onClick={onClick} className={`button ${className ? className : ""}`} ref={ref} title={title}>
         {link ? 
           (<Link href={link}>
             {children}

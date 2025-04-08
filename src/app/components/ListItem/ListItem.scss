@@ -1,44 +1,19 @@
+@use "../../styles/variables.scss";
+
 .list-item {
-    span {
-        display: grid;
-        grid-template-columns: 1rem 1fr;
-        column-gap: 0.5rem;
+    display: flex;
+    column-gap: 0.5rem;
+    transition: backdrop-filter 0.2s;
 
-        &::before {
-            content: "";
-            background-size: contain;
-            background-repeat: no-repeat;
-            margin-top: 0.3rem;
-        }
+    &__marker {
+        color: variables.$color-medium--cool;
     }
 
-    &.code {
-        span::before {
-            background-image: url(/icons/code.svg);
-        }
+    &__content {
+        flex: 1;
     }
 
-    &.heart {
-        span::before {
-            background-image: url(/icons/heart.svg);
-        }
-    }
-
-    &.terminal {
-        span::before {
-            background-image: url(/icons/terminal.svg);
-        }
-    }
-
-    &.user {
-        span::before {
-            background-image: url(/icons/user.svg);
-        }
-    }
-
-    &.users {
-        span::before {
-            background-image: url(/icons/users.svg);
-        }
+    &:hover {
+        backdrop-filter: contrast(0.3);
     }
 }

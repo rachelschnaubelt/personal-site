@@ -7,11 +7,6 @@ interface RoleProps {
     item: string
 }
 
-interface HighlightProp {
-    icon: string,
-    text: string
-}
-
 export default function Role({item}: RoleProps) {
     let role = JSON.parse(item);
     const {company, endingDate, location, responsibilities, roleTitle, startingDate } = role.fields;
@@ -20,14 +15,15 @@ export default function Role({item}: RoleProps) {
         <div className={`role`}>
             <Accordion heading={roleTitle}>
                 <div className="role__details">
-                    <p>{company} | {location}</p>
-                    <p>{startingDate} - {endingDate}</p>
+                    <p className="role__details--company">{company}</p>
+                    <p className="role__details--location">{location}</p>
+                    <p className="role__details--term">{startingDate} - {endingDate}</p>
                 </div>
-                <Heading level={4} text="Responsibilities and Highlights" />
+                <Heading level={4} text="Responsibilities and Highlights" className="role__highlights-heading" />
 
                 <ul className="role__highlights">
                     {responsibilities.map((resp: any, index: number) => (
-                        <ListItem key={index} className={`role__highlight ${resp.fields.bulletStyle}`}>{resp.fields.description}</ListItem>
+                        <ListItem key={index} className={`role__highlight`} icon={resp.fields.bulletStyle}>{resp.fields.description}</ListItem>
                     ))}
                 </ul>
             </Accordion>

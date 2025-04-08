@@ -3,6 +3,7 @@
 @use "./variables.scss";
 @use "./themes.scss";
 @use "./fonts.scss";
+@use "./typography.scss";
 
 html {
     font-size: 16px;
@@ -33,6 +34,7 @@ body {
     padding-right: 1.5rem;
     padding-bottom: 2rem;
     margin-bottom: 3.5rem;
+    margin-top: 0.5rem;
     
     &::after {
         content: '';
@@ -93,10 +95,6 @@ a {
     //       }
     //   }
 
-}
-
-p {
-    margin-bottom: 0.5rem;
 }
 
 .hidden {

@@ -15,8 +15,6 @@ export default function RootLayout({
   const [theme, setTheme] = useState('dark');
   const [temp, setTemp] = useState('cool');
   const [font, setFont] = useState('default');
-  const [isScrolled, setIsScrolled] = useState(false);
-  const mainContentRef = useRef<HTMLElement>(null);
 
   const handleThemeChange = (isDark: boolean) => {
     if(isDark)
@@ -36,25 +34,6 @@ export default function RootLayout({
     setFont(event.target?.value);
   }
 
-  useEffect(() => {
-    const mainContent = mainContentRef.current;
-    const handleScroll = (event: Event) => {
-      console.log(mainContentRef.current);
-      if(mainContentRef.current?.scrollTop && mainContentRef.current?.scrollTop > 0) {
-        setIsScrolled(true);
-      }
-      else {
-        setIsScrolled(false);
-      }
-    };
-
-    mainContent?.addEventListener('scroll', handleScroll);
-
-    return () => {
-      mainContent?.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <html lang="en" className={`theme--${temp}--${theme} theme--font-${font}`}>
       <body>
@@ -65,8 +44,8 @@ export default function RootLayout({
           onBlur={(e) => {e.target.classList.add('hidden')}}>
             Skip to main content
         </Link>
-        <Header setTheme={handleThemeChange} setTemp={handleTemperatureChange} setFont={handleFontChange} isScrolled={isScrolled}/>
-        <main id="main-content" className="main-content" ref={mainContentRef}>
+        <Header setTheme={handleThemeChange} setTemp={handleTemperatureChange} setFont={handleFontChange}/>
+        <main id="main-content" className="main-content">
           {children}
         </main>
         <MobileNav />

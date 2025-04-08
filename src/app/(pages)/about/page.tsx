@@ -17,11 +17,30 @@ export default async function About() {
           </Link>
         </div>
         <Heading level={2} text="About" />
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem accusamus, quas quis eaque rem consequatur. Accusantium aliquam unde dolores. Enim inventore cupiditate possimus earum illum quasi error fuga consequuntur nulla?</p>
+                    <div>
+                        <p>Creative Senior Full Stack Developer specializing in user-facing web solutions and technical leadership.</p>
+                        <p>Skilled at fostering cross-team collaboration and cultivating inclusive, high-performing environments.</p>
+                    </div>
+        <Heading level={3} text="My Why" />
+        <ul>
+          <li>Inclusivity</li>
+          <li>problem solving</li>
+          <li>collaboration</li>
+          <li></li>
+        </ul>
+          <p>My why - Explain why you do what you do. What draws you to full-stack development? What do you love about it? What kind of problems do you like solving?</p>
+        <Heading level={3} text="My Work Style" />
+          <p>My work style - How do you approach development? Are you user-focused? Design-minded? Do you enjoy cross-functional collaboration? Agile environments? This helps people understand what it’s like to work with you.</p>
+        <Heading level={3} text="My Journey" />
+          <p>My learning journey - Share how you got started and how you’ve grown. Self-taught? Bootcamp? CS degree? Constantly learning new frameworks? This can help show your adaptability and passion.</p>
+        <Heading level={3} text="My Goals" />
+          <p>What I'm looking for - If the site is meant to attract collaborators, clients, or employers, make it clear what you're open to.</p>
         <Heading level={3} text="Education" />
         <p>Bachelor's of Science - Computer Science</p>
         <p>University of North Georgia</p>
         <p>2019</p>
+        <Heading level={3} text="The Fun Stuff" />
+        <p>Hobbies and Interests</p>
       </section>
     );
   }

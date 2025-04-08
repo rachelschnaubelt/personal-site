@@ -1,4 +1,3 @@
-"use client";
 
 import Link from "next/link";
 import Nav from "../Nav/Nav";
@@ -7,6 +6,7 @@ import { useEffect, useState } from "react";
 import Heading from "../Heading/Heading";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { usePathname } from "next/navigation";
+import { createClient, CreateClientParams } from "contentful";
 
 interface HeaderProps {
   setTheme: (value: boolean) => void,
@@ -16,6 +16,7 @@ interface HeaderProps {
 
 export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isTransparentBg, setIsTransparentBg] = useState(false);
   const [bodyHeight, setBodyHeight] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
   const pathName = usePathname();
@@ -23,6 +24,13 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
   useEffect(() => {
 
     setBodyHeight(document.body.scrollHeight);
+
+    if(pathName === '/') {
+      setIsTransparentBg(true);
+    }
+    else {
+      setIsTransparentBg(false);
+    }
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -59,8 +67,9 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
         <Heading className="header__text" level={1} text="Rachel Schnaubelt" />
       </Link>
       <ProgressBar />
-      <div className="header__background" style={{"height": `${bodyHeight}px`, "top": `-${scrollPosition}px`}}>
-      </div>
+      {!isTransparentBg && 
+        <div className="header__background" style={{"height": `${bodyHeight}px`, "top": `-${scrollPosition}px`}}></div>
+      }
 
       {/* <Nav setTheme={setTheme} setTemp={setTemp} setFont={setFont} /> */}
       {/* <div className="glass-effect-wrapper">
