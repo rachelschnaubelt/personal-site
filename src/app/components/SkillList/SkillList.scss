@@ -68,10 +68,11 @@
             box-sizing: border-box;
             border-radius: calc(infinity *1px);
             margin: 2px;
-            background: variables.$rainbow-gradient;
+            background: variables.$rainbow-gradient--dark;
             background-size: 200%;
             background-position: left;
             background-attachment: fixed;
+            // background: linear-gradient(65deg, variables.$color-medium--cool, variables.$color-secondary--cool);
         }
     }
 

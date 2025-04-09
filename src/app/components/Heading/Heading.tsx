@@ -2,7 +2,7 @@ import { JSX } from "react";
 import './Heading.scss';
 
 interface HeadingProps {
-    text: string,
+    text?: string,
     level?: number,
     className?: string
 }

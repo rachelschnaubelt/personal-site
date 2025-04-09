@@ -1,3 +1,84 @@
+@use "@/app/styles/themes.scss";
+@use "@/app/styles/variables.scss";
+
+@property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
 .button {
+
+    @include themes.themed() {
+        --border-color: themes.t('button-border')
+    }
+
     cursor: pointer;
+    border-radius: calc(infinity * 1px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+        border-radius: calc(infinity *1px);
+        margin: 2px;
+        background: variables.$rainbow-gradient--dark;
+        background-size: 200%;
+        background-position: left;
+        background-attachment: fixed;
+
+        a, a:visited {
+            color: white;
+        }
+    }
+
+    &.simple {
+        background: none;
+        border: none;
+        padding: 0;
+        border-radius: 100%;
+
+        &::before {
+            transition: none;
+        }
+
+        .button__inner {
+            padding: 0;
+            background: none;
+        }
+
+        &:hover {
+            &::before {
+                --border-angle: 0deg;
+            }
+        }
+    }
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            inset: 0;
+            --border-angle:0deg;
+            transition:--border-angle 0.5s;
+            @include themes.themed() {
+                background: conic-gradient(white var(--border-angle), transparent var(--border-angle) 360deg);
+            }
+
+        }
+
+        &:hover {
+            &::before {
+                --border-angle:360deg;
+            }
+        }
 }

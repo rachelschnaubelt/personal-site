@@ -7,7 +7,7 @@
         position: relative;
     }
 
-    &__button {
+    &__button.button {
         background: none;
         color: variables.$color-medium--cool;
         border: none;
@@ -15,12 +15,14 @@
         top: 50%;
         transform: translateY(-50%);
 
-        &--prev {
-            left: -1.75rem;
-        }
+        &.carousel__button {
+            &--prev {
+                left: -1.75rem;
+            }
 
-        &--next {
-            right: -1.75rem;
+            &--next {
+                right: -1.75rem;
+            }
         }
     }
 

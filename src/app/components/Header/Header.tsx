@@ -6,26 +6,27 @@ import { useEffect, useState } from "react";
 import Heading from "../Heading/Heading";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { usePathname } from "next/navigation";
-import { createClient, CreateClientParams } from "contentful";
 
 interface HeaderProps {
-  setTheme: (value: boolean) => void,
-  setTemp: (value: boolean) => void,
-  setFont: React.ChangeEventHandler<HTMLSelectElement>
+  setTheme?: (value: boolean) => void,
+  setTemp?: (value: boolean) => void,
+  setFont?: React.ChangeEventHandler<HTMLSelectElement>,
+  headerContent: string
 }
 
-export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont }: HeaderProps) {
+export default function Header({ setTheme = () => { }, setTemp = () => { }, setFont, headerContent}: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isTransparentBg, setIsTransparentBg] = useState(false);
   const [bodyHeight, setBodyHeight] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const {headerText} = JSON.parse(headerContent).fields;
   const pathName = usePathname();
 
   useEffect(() => {
 
     setBodyHeight(document.body.scrollHeight);
 
-    if(pathName === '/') {
+    if(pathName === '/' || pathName === '/professional') {
       setIsTransparentBg(true);
     }
     else {
@@ -64,7 +65,7 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
       <Link href="/">
-        <Heading className="header__text" level={1} text="Rachel Schnaubelt" />
+        <Heading className="header__text" level={1} text={headerText} />
       </Link>
       <ProgressBar />
       {!isTransparentBg && 

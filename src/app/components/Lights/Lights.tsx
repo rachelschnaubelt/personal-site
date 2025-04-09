@@ -32,7 +32,7 @@ export default function Lights() {
   return (
     <div className={`lights animated ${isPaused ? "pause" : ""}`}>
         {lightNodes()}
-        <Button onClick={handlePause} className="lights__pause-button" title={`${isPaused? "play" : "pause"} background animation`}>
+        <Button onClick={handlePause} className="lights__pause-button simple" title={`${isPaused? "play" : "pause"} background animation`}>
             {isPaused ? 
                 <FontAwesomeIcon icon={faCirclePlay} size="2x" /> : 
                 <FontAwesomeIcon icon={faCirclePause} size="2x" />}

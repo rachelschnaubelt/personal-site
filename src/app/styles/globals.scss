@@ -119,3 +119,15 @@ a {
         top: -2rem;
     }
 }
+
+.background-blur {
+    background-color: #0003;
+    z-index: 5;
+    position: relative;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(2rem);
+    justify-self: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}

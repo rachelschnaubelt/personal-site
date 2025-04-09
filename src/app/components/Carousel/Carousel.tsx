@@ -6,7 +6,7 @@ import "./Carousel.scss";
 import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleRight, faChevronLeft, faChevronRight, faCircle } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faCircle } from "@fortawesome/free-solid-svg-icons";
 
 export default function Carousel() {
     const [activeItem, setActiveItem] = useState(0);
@@ -19,16 +19,23 @@ export default function Carousel() {
     const carouselItems = [
         <>
                     <Heading level={3} text="Inclusion & Collaboration" />
+                    <p>Great ideas thrive in diverse, inclusive communities where everyone’s voice is heard. I actively work to foster environments where all perspectives are valued. By bridging gaps and creating space for diverse viewpoints, I help build stronger, more impactful solutions that reflect the needs of everyone involved.</p>
         </>,
         <>
-                    <Heading level={3} text="Problem Solving" />
-        </>,
+                    <Heading level={3} text="User-Centered Solutions" />
+                    <p>Engaging web experiences put users and their needs first. No matter the ask, my priority is always to understand the core problem directly from the user. From there, I partner with cross-functional teams to create solutions that directly address those needs — not just check boxes.</p>
+
+        </>,       
         <>
                     <Heading level={3} text="Creativity" />
-        </>,
-        <>
-                    <Heading level={3} text="User Focused" />
+                    <p>Curiosity, experimentation, and collaboration drive the way I bring ideas to life. Whether I’m developing a project at work or pursuing a passion outside of it, creativity keeps me engaged, inspired, and always looking for new opportunities to grow.</p>
         </>
+        // ,
+        // <>
+        //             <Heading level={3} text="User Focused" />
+        //             <p>Engaging web experiences put users first. From accessibility best practices to measurable A/B testing to intuitive internal tools, I aim for thoughtful, collaborative design and implementation that meets actual needs and doesn't just check boxes.</p>
+
+        // </>
     ];
 
     const handleActiveChange = (index: number) => {
@@ -62,7 +69,7 @@ export default function Carousel() {
     return (
         <div className="carousel">
             <div className="carousel__body">
-                <Button onClick={handlePrev} className="carousel__button carousel__button--prev">
+                <Button onClick={handlePrev} className="carousel__button carousel__button--prev simple">
                     <FontAwesomeIcon icon={faChevronLeft} size="2x"/>
                 </Button>
                 <div className={`carousel__items carousel__move--${direction}`}>
@@ -74,7 +81,7 @@ export default function Carousel() {
                     )
                 })}
                 </div>
-                <Button onClick={handleNext} className="carousel__button carousel__button--next">
+                <Button onClick={handleNext} className="carousel__button carousel__button--next simple">
                     <FontAwesomeIcon icon={faChevronRight} size="2x"/>
                 </Button>
             </div>
@@ -84,7 +91,7 @@ export default function Carousel() {
                         <Button
                             key={index}
                             onClick={() => { handleActiveChange(index) }}
-                            className={`carousel__bullet ${activeItem === index ? "carousel__bullet--active" : ""}`}
+                            className={`carousel__bullet simple ${activeItem === index ? "carousel__bullet--active" : ""}`}
                             title={`Go to slide ${index + 1}`}>
                             <FontAwesomeIcon icon={faCircle} />
                         </Button>

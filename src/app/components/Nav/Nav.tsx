@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+// import { useRef, useState } from "react";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import Toggle from "../Toggle/Toggle";
@@ -16,27 +16,27 @@ interface NavProps {
 }
 
 export default function Nav({ setTheme = () => { }, setTemp = () => { }, setFont }: NavProps) {
-  const [settingsModalState, setSettingsModalState] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  // const [settingsModalState, setSettingsModalState] = useState(false);
+  // const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleOpenSettings = () => {
-    buttonRef.current?.classList.add('rotate');
-    setTimeout(() => {
-      buttonRef.current?.classList.remove('rotate');
-    }, 1500)
-    setSettingsModalState(true);
-  }
+//   const handleOpenSettings = () => {
+//     buttonRef.current?.classList.add('rotate');
+//     setTimeout(() => {
+//       buttonRef.current?.classList.remove('rotate');
+//     }, 1500)
+//     setSettingsModalState(true);
+//   }
 
-  const handleCloseModal = () => {
-    setSettingsModalState(false);
-}
+//   const handleCloseModal = () => {
+//     setSettingsModalState(false);
+// }
 
   return (
     <nav className="nav">
       <ul>
-        <li><Link className="nav-link" href="/experience"><FontAwesomeIcon className="nav-link__icon" icon={faBriefcase} /><span className="nav-link__text">Experience</span></Link></li>
-        <li><Link className="nav-link" href="/skills"><FontAwesomeIcon className="nav-link__icon" icon={faStar} /><span className="nav-link__text">Skills</span></Link></li>
-        <li><Link className="nav-link" href="/about"><FontAwesomeIcon className="nav-link__icon" icon={faAddressCard} /><span className="nav-link__text">About</span></Link></li>
+        <li><Link className="nav-link" href="/professional/experience"><FontAwesomeIcon className="nav-link__icon" icon={faBriefcase} /><span className="nav-link__text">Experience</span></Link></li>
+        <li><Link className="nav-link" href="/professional/skills"><FontAwesomeIcon className="nav-link__icon" icon={faStar} /><span className="nav-link__text">Skills</span></Link></li>
+        <li><Link className="nav-link" href="/professional/about"><FontAwesomeIcon className="nav-link__icon" icon={faAddressCard} /><span className="nav-link__text">About</span></Link></li>
       </ul>
 
       {/* <ul className="nav__social-links">

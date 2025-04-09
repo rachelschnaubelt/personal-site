@@ -1,11 +1,12 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import "./styles/globals.scss";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import MobileNav from "./components/MobileNav/MobileNav";
+import { createClient, CreateClientParams, Entry, EntrySkeletonType } from "contentful";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,8 @@ export default function RootLayout({
   const [theme, setTheme] = useState('dark');
   const [temp, setTemp] = useState('cool');
   const [font, setFont] = useState('default');
+  const [pageContent, setPageContent] = useState<Entry<EntrySkeletonType, undefined, string>[]>();
+  const [contentLoaded, setContentLoaded] = useState<boolean>(false);
 
   const handleThemeChange = (isDark: boolean) => {
     if(isDark)
@@ -34,6 +37,33 @@ export default function RootLayout({
     setFont(event.target?.value);
   }
 
+  useEffect(() => {
+    const getPageContent = async () => {
+      try{
+      const clientProps: CreateClientParams = {
+          space: process.env.CONTENTFUL_SPACE_ID!,
+          accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!
+        }
+        const client = createClient(clientProps);
+      
+        const pageQueryParams = {
+          content_type: "page",
+          'fields.slug[in]': 'home'
+        };
+      
+        const results = await client.getEntries(pageQueryParams);
+        setPageContent(results.items);
+      }
+      catch(err) {
+
+      }
+      finally {
+        setContentLoaded(true);
+      }
+      }
+      getPageContent();
+  }, [])
+
   return (
     <html lang="en" className={`theme--${temp}--${theme} theme--font-${font}`}>
       <body>
@@ -44,12 +74,12 @@ export default function RootLayout({
           onBlur={(e) => {e.target.classList.add('hidden')}}>
             Skip to main content
         </Link>
-        <Header setTheme={handleThemeChange} setTemp={handleTemperatureChange} setFont={handleFontChange}/>
-        <main id="main-content" className="main-content">
+        {contentLoaded && <Header 
+          setTheme={handleThemeChange} 
+          setTemp={handleTemperatureChange} 
+          setFont={handleFontChange}
+          headerContent={JSON.stringify(pageContent && pageContent[0].fields.header)}/>}
           {children}
-        </main>
-        <MobileNav />
-        {/* <Footer /> */}
       </body>
     </html>
   );
