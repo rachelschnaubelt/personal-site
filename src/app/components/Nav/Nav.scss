@@ -54,6 +54,10 @@
             &__text {
                 font-size: 0.75rem;
             }
+
+            &.active {
+                color: variables.$color-medium--cool;
+            }
         }
 
         // li {

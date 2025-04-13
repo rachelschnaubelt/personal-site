@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import "./styles/globals.scss";
 import { useEffect, useState } from "react";
-import MobileNav from "./components/MobileNav/MobileNav";
 import { createClient, CreateClientParams, Entry, EntrySkeletonType } from "contentful";
 
 export default function RootLayout({

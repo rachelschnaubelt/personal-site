@@ -9,12 +9,13 @@ interface ButtonProps {
     onClick?: () => void,
     ref?: React.RefObject<HTMLButtonElement | null>,
     link?: string,
-    title?: string
+    title?: string,
+    style?: "icon" | ""
 }
 
-const Button = ({children, type="button", label, className, onClick, ref, link, title}: ButtonProps) => {
+const Button = ({children, type="button", label, className, onClick, ref, link, title, style = ""}: ButtonProps) => {
     return (
-      <button type={type} aria-label={label} onClick={onClick} className={`button ${className ? className : ""}`} ref={ref} title={title}>
+      <button type={type} aria-label={label} onClick={onClick} className={`button ${style ? "button--"+style : ""} ${link ? "button--link": ""} ${className ? className : ""}`} ref={ref} title={title}>
         <span className="button__inner">
           {link ? 
             (<Link href={link}>

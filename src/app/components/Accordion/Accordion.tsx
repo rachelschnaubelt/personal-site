@@ -8,11 +8,12 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 interface AccordionProps {
     heading: string,
-    children: React.ReactNode
+    children: React.ReactNode,
+    startsOpen?: boolean
 }
 
-export default function Accordion({heading, children}: AccordionProps) {
-    const [isOpen, setIsOpen] = useState(true);
+export default function Accordion({heading, children, startsOpen=true}: AccordionProps) {
+    const [isOpen, setIsOpen] = useState(startsOpen);
     const contentRef = useRef<HTMLDivElement>(null);
     
     const handleOpenClose = () => {
@@ -20,7 +21,7 @@ export default function Accordion({heading, children}: AccordionProps) {
     }
 
     useEffect(() => {
-
+        
         const handleResize = () => {
             const contentDiv = contentRef.current;
             if(contentDiv) {
@@ -37,6 +38,7 @@ export default function Accordion({heading, children}: AccordionProps) {
           return () => {
             window.removeEventListener('resize', handleResize);
           };
+
     }, [])
   
 

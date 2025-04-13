@@ -1,5 +1,6 @@
 import "../../styles/pages/home.scss";
 import Lights from "../../components/Lights/Lights";
+import Button from "@/app/components/Button/Button";
 
 
 export default async function Home() {
@@ -8,6 +9,7 @@ export default async function Home() {
     <section className="page page__fun">
       <Lights />
       <div className="background-blur">
+        <Button link="./fun/generators">Generators</Button>
       </div>
     </section>  
   );

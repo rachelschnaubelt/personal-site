@@ -3,6 +3,9 @@ https://codepen.io/DSlatkin/pen/MzRJEO/left
 https://muffinman.io/blog/sass-random-and-circle-animation/
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties
 https://chenhuijing.com/blog/flexbox-and-padding/
+https://www.pexels.com/photo/group-of-people-gathered-around-wooden-table-3184360/
+https://www.pexels.com/photo/woman-wearing-red-and-black-checkered-blouse-using-macbook-1181472/
+https://www.pexels.com/photo/close-up-photo-of-assorted-colored-chalks-1153895/
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

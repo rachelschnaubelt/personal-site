@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay, faCirclePause } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlay, faCirclePause, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 import Button from "../Button/Button";
 import "./Lights.scss";
 
@@ -32,10 +32,10 @@ export default function Lights() {
   return (
     <div className={`lights animated ${isPaused ? "pause" : ""}`}>
         {lightNodes()}
-        <Button onClick={handlePause} className="lights__pause-button simple" title={`${isPaused? "play" : "pause"} background animation`}>
+        <Button onClick={handlePause} className="lights__pause-button simple" title={`${isPaused? "play" : "pause"} background animation`} style="icon">
             {isPaused ? 
-                <FontAwesomeIcon icon={faCirclePlay} size="2x" /> : 
-                <FontAwesomeIcon icon={faCirclePause} size="2x" />}
+                <FontAwesomeIcon icon={faPlay} size="2x" /> : 
+                <FontAwesomeIcon icon={faPause} size="2x" />}
             </Button>
     </div>
   );

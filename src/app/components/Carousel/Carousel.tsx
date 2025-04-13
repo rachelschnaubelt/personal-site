@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faCircle } from "@fortawesome/free-solid-svg-icons";
+import Card from "../Card/Card";
 
 export default function Carousel() {
     const [activeItem, setActiveItem] = useState(0);
@@ -16,26 +17,7 @@ export default function Carousel() {
 
     }, [activeItem])
 
-    const carouselItems = [
-        <>
-                    <Heading level={3} text="Inclusion & Collaboration" />
-                    <p>Great ideas thrive in diverse, inclusive communities where everyone’s voice is heard. I actively work to foster environments where all perspectives are valued. By bridging gaps and creating space for diverse viewpoints, I help build stronger, more impactful solutions that reflect the needs of everyone involved.</p>
-        </>,
-        <>
-                    <Heading level={3} text="User-Centered Solutions" />
-                    <p>Engaging web experiences put users and their needs first. No matter the ask, my priority is always to understand the core problem directly from the user. From there, I partner with cross-functional teams to create solutions that directly address those needs — not just check boxes.</p>
-
-        </>,       
-        <>
-                    <Heading level={3} text="Creativity" />
-                    <p>Curiosity, experimentation, and collaboration drive the way I bring ideas to life. Whether I’m developing a project at work or pursuing a passion outside of it, creativity keeps me engaged, inspired, and always looking for new opportunities to grow.</p>
-        </>
-        // ,
-        // <>
-        //             <Heading level={3} text="User Focused" />
-        //             <p>Engaging web experiences put users first. From accessibility best practices to measurable A/B testing to intuitive internal tools, I aim for thoughtful, collaborative design and implementation that meets actual needs and doesn't just check boxes.</p>
-
-        // </>
+    const carouselItems = [<></>
     ];
 
     const handleActiveChange = (index: number) => {

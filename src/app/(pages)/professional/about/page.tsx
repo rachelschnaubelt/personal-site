@@ -24,9 +24,7 @@ export default async function About() {
         <Heading level={3} text="My Why" />
         <ul>
           <li>Inclusivity</li>
-          <li>problem solving</li>
-          <li>collaboration</li>
-          
+          <li>problem solving</li>          
           <li>collaboration over silos</li>
         </ul>
           <p>My why - Explain why you do what you do. What draws you to full-stack development? What do you love about it? What kind of problems do you like solving?</p>

@@ -24,13 +24,17 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
 
   useEffect(() => {
 
-    setBodyHeight(document.body.scrollHeight);
+    const handleResize = () => {
+      const bodyScrollHeight = document.body.scrollHeight;
 
-    if(pathName === '/' || pathName === '/professional') {
-      setIsTransparentBg(true);
-    }
-    else {
-      setIsTransparentBg(false);
+      setBodyHeight(bodyScrollHeight);
+
+      if(bodyScrollHeight <= window.innerHeight) {
+        setIsTransparentBg(true);
+      }
+      else {
+        setIsTransparentBg(false);
+      }
     }
 
     const handleScroll = () => {
@@ -46,9 +50,11 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, [pathName]);
 

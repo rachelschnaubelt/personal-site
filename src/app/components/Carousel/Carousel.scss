@@ -1,7 +1,8 @@
 @use "../../styles/variables.scss";
 
 .carousel {
-
+    margin: 0 2rem;
+    
     &__body {
         display: flex;
         position: relative;
