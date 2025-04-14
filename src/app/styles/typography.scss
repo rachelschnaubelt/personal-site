@@ -10,3 +10,19 @@ h3 {
 p {
     margin-bottom: 0.5rem;
 }
+
+// .color-lines {
+//     p {
+//         &::after {
+//             content: "";
+//             position: absolute;
+//             inset: 0;
+//             background: no-repeat left top/100% 1.2em linear-gradient(to right, rgba(0, 0, 0, 0.288), transparent, rgba(255, 255, 255, 0.226)),
+//                         no-repeat left 1.2em/100% 1.2em linear-gradient(to right, rgba(255, 0, 0, 0.183), transparent, rgba(0, 0, 255, 0.192)),
+//                         no-repeat left 2.4em/100% 1.2em linear-gradient(to right, rgba(0, 0, 255, 0.192), transparent, rgba(0, 255, 89, 0.192)),
+//                         no-repeat left 3.6em/100% 1.2em linear-gradient(to right, rgba(0, 255, 89, 0.192), transparent, rgba(217, 255, 0, 0.192)),
+//                         no-repeat left 4.8em/100% 1.2em linear-gradient(to right, rgba(217, 255, 0, 0.192), transparent, rgba(0, 0, 255, 0.192));
+//         }
+//     }
+// }
+

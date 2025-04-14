@@ -1,7 +1,51 @@
 .card {
+    &__heading, &__body {
+        animation: card-text;
+        animation-duration: 1s;
+        position: relative;
+    }
+
     &__image {
         width: 100%;
         height: auto;
+        animation: card-image;
+        animation-duration: 0.6s;
+        transition: 0.4s;
+        display: block;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        // clip-path: polygon(0% 0, 100% 0, 100% 100%, 0 75%);
+    }
+
+    &__image-wrapper {
+        overflow: hidden;
         border-radius: 0.5rem;
+    }
+
+    @keyframes card-text {
+        from {
+            opacity: 0;
+            bottom: 2rem;
+        }
+        to {
+            opacity: 1;
+            bottom: 0;
+        }
+    }
+
+    @keyframes card-image {
+        from {
+            opacity: 0;
+            filter: blur(0.5rem);
+            transform: scale(1.3);
+        }
+        to {
+            opacity: 1;
+            filter: blur(0);
+            transform: none;
+        }
     }
 }

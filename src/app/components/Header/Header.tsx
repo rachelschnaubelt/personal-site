@@ -29,11 +29,11 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
 
       setBodyHeight(bodyScrollHeight);
 
-      if(bodyScrollHeight <= window.innerHeight) {
-        setIsTransparentBg(true);
+      if(bodyScrollHeight > window.innerHeight) {
+        setIsTransparentBg(false);
       }
       else {
-        setIsTransparentBg(false);
+        setIsTransparentBg(true);
       }
     }
 
@@ -51,6 +51,7 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
+    handleResize();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
