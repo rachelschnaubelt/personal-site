@@ -31,9 +31,9 @@
         box-sizing: border-box;
         border-radius: calc(infinity *1px);
         margin: 2px;
-        background: variables.$rainbow-gradient--dark;
-        background-size: 200%;
-        background-position: left;
+        background: variables.$button-gradient;
+        // background-size: 200%;
+        // background-position: left;
         background-attachment: fixed;
     }
 
@@ -53,13 +53,13 @@
         width: 3rem;
         height: 3rem;
         border-radius: calc(infinity * 1px);
-        backdrop-filter: contrast(0.8) blur(0.5rem) brightness(3.5) saturate(2);
+        backdrop-filter: contrast(0.8) blur(0.5rem) brightness(2) saturate(2);
         box-shadow: 2px 4px 12px 4px rgba(0, 0, 0, 0.6), 0 0 3px 1px rgba(0, 0, 0, 0.2);
         transition: 0.4s;
 
-        &:hover, &:focus {
-            box-shadow: 0 0 8px black inset, 0 0 4px black inset;
-            backdrop-filter: contrast(0.8) blur(0.5rem) brightness(2.5) saturate(1.5);
+        &:hover {
+            box-shadow: 0 0 8px black inset, 0 0 4px 2px black inset;
+            backdrop-filter: contrast(0.8) blur(0.5rem) brightness(2.5) saturate(1.3);
             background-color: #00000059;
             border: solid 1px black;
 

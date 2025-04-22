@@ -1,10 +1,18 @@
 @use 'sass:color';
+@use 'sass:map';
 
 // Breakpoints
 $breakpoint--sm: 360px;
 $breakpoint--md: 768px;
 $breakpoint--lg: 1024px;
 $breakpoint--xl: 1440px;
+
+$breakpoints: (
+    mobile: $breakpoint--sm,
+    tablet: $breakpoint--md,
+    desktop: $breakpoint--lg,
+    ultrawide: $breakpoint--xl
+);
 
 // Colors
 
@@ -32,6 +40,13 @@ $color-tertiary--cool: #ab1e35;
 // $color-secondary--cool: #FDC5E0;
 // $color-tertiary--cool: #FDFCDF;
 
+$color-light--cool: #64C6FF;
+$color-medium--cool: #2959C7;
+$color-dark--cool: #2E2447;
+$color-dark--cool2: #142726;
+$color-secondary--cool: #FE3D92;
+$color-tertiary--cool: #ff75bc;
+
 
 $color-light--warm: #FDCE9B;
 $color-medium--warm: #E2624F;
@@ -40,6 +55,13 @@ $color-secondary--warm: #F8B436;
 $color-tertiary--warm: #273D6C;
 
 // gradients
+
+$button-gradient: linear-gradient(
+    65deg,
+    $color-light--cool,
+    $color-secondary--cool,
+    $color-tertiary--cool
+);
 
 $bg-gradient--cool: linear-gradient(
     10deg,
@@ -55,8 +77,8 @@ $bg-gradient--warm: linear-gradient(
 
 $bg-gradient--cool--dark: linear-gradient(
     10deg,
-    $color-black,
-    $color-dark--cool
+    $color-dark--cool 50%,
+    $color-medium--cool
 );
 
 $bg-gradient--warm--dark: linear-gradient(

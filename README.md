@@ -6,6 +6,7 @@ https://chenhuijing.com/blog/flexbox-and-padding/
 https://www.pexels.com/photo/group-of-people-gathered-around-wooden-table-3184360/
 https://www.pexels.com/photo/woman-wearing-red-and-black-checkered-blouse-using-macbook-1181472/
 https://www.pexels.com/photo/close-up-photo-of-assorted-colored-chalks-1153895/
+https://codepen.io/mikegolus/pen/Jegvym
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

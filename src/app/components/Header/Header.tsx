@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Heading from "../Heading/Heading";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { usePathname } from "next/navigation";
+import { unstable_ViewTransition as ViewTransition } from 'react';
 
 interface HeaderProps {
   setTheme?: (value: boolean) => void,
@@ -70,20 +71,22 @@ export default function Header({ setTheme = () => { }, setTemp = () => { }, setF
   }, [])
 
   return (
-    <header className={`header ${isScrolled ? "scrolled" : ""}`}>
-      <Link href="/">
-        <Heading className="header__text" level={1} text={headerText} />
-      </Link>
-      <ProgressBar />
-      {!isTransparentBg && 
-        <div className="header__background" style={{"height": `${bodyHeight}px`, "top": `-${scrollPosition}px`}}></div>
-      }
+    <ViewTransition name="header">
+      <header className={`header ${isScrolled ? "scrolled" : ""}`}>
+        <Link href="/">
+          <Heading className="header__text" level={1} text={headerText} />
+        </Link>
+        <ProgressBar />
+        {!isTransparentBg && 
+          <div className="header__background" style={{"height": `${bodyHeight}px`, "top": `-${scrollPosition}px`}}></div>
+        }
 
-      {/* <Nav setTheme={setTheme} setTemp={setTemp} setFont={setFont} /> */}
-      {/* <div className="glass-effect-wrapper">
-        <div className="glass-effect"></div>
-      </div> */}
+        {/* <Nav setTheme={setTheme} setTemp={setTemp} setFont={setFont} /> */}
+        {/* <div className="glass-effect-wrapper">
+          <div className="glass-effect"></div>
+          </div> */}
 
-    </header>
+      </header>
+    </ViewTransition>
   );
 }

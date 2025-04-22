@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import "./styles/globals.scss";
 import { useEffect, useState } from "react";
 import { createClient, CreateClientParams, Entry, EntrySkeletonType } from "contentful";
+import { unstable_ViewTransition as ViewTransition } from 'react'
 
 export default function RootLayout({
   children,
@@ -65,21 +66,23 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`theme--${temp}--${theme} theme--font-${font}`}>
-      <body>
-        <Link 
-          href="#main-content" 
-          className="skip-nav-link hidden "
-          onFocus={(e) => {e.target.classList.remove('hidden')}}
-          onBlur={(e) => {e.target.classList.add('hidden')}}>
-            Skip to main content
-        </Link>
-        {contentLoaded && <Header 
-          setTheme={handleThemeChange} 
-          setTemp={handleTemperatureChange} 
-          setFont={handleFontChange}
-          headerContent={JSON.stringify(pageContent && pageContent[0].fields.header)}/>}
-          {children}
-      </body>
+      <ViewTransition>
+        <body>
+          <Link 
+            href="#main-content" 
+            className="skip-nav-link hidden "
+            onFocus={(e) => {e.target.classList.remove('hidden')}}
+            onBlur={(e) => {e.target.classList.add('hidden')}}>
+              Skip to main content
+          </Link>
+          {contentLoaded && <Header 
+            setTheme={handleThemeChange} 
+            setTemp={handleTemperatureChange} 
+            setFont={handleFontChange}
+            headerContent={JSON.stringify(pageContent && pageContent[0].fields.header)}/>}
+            {children}
+        </body>
+      </ViewTransition>
     </html>
   );
 }

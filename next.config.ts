@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
             hostname: 'images.ctfassets.net'
           },
         ],
+    },
+    experimental: {
+      viewTransition: true,
     }
 };
 

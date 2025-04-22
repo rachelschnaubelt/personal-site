@@ -10,7 +10,7 @@ html {
     // cursor: url('/icons/cursor.png'), auto;
     overflow: hidden;
     overflow-y: auto;
-    scrollbar-color: variables.$color-medium--cool variables.$color-dark--cool;
+    scrollbar-color: variables.$color-dark--cool variables.$color-medium--cool;
 }
 
 body {
@@ -56,6 +56,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    position: relative;
 }
 
 a {
@@ -132,3 +133,4 @@ a {
     margin-top: auto;
     margin-bottom: auto;
 }
+

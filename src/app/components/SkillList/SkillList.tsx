@@ -46,7 +46,7 @@ export default function SkillList({item}: SkillListProps) {
       <ul className="skill-list__list">
         {skill.map((skillItem: string, index: number) => {
             return(
-            <li key={index} className="skill-list__item card example-2">
+            <li key={index} className="skill-list__item">
                 <span className="skill-list__item-inner inner">
                     {skillItem}
                 </span>

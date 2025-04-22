@@ -1,4 +1,13 @@
 .card {
+    backdrop-filter: blur(0.5rem);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 3px 4px 16px 0 rgba(0, 0, 0, 0.40),
+                2px 4px 8px 0 rgba(0, 0, 0, 0.50);
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    transition: 0.2s;
+
     &__heading, &__body {
         animation: card-text;
         animation-duration: 1s;
@@ -13,9 +22,9 @@
         transition: 0.4s;
         display: block;
 
-        &:hover {
-            transform: scale(1.1);
-        }
+        // &:hover {
+        //     transform: scale(1.1);
+        // }
 
         // clip-path: polygon(0% 0, 100% 0, 100% 100%, 0 75%);
     }

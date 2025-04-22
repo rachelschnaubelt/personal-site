@@ -6,7 +6,7 @@
     transition: backdrop-filter 0.2s;
 
     &__marker {
-        color: variables.$color-medium--cool;
+        color: variables.$color-secondary--cool;
     }
 
     &__content {
@@ -14,6 +14,6 @@
     }
 
     &:hover {
-        backdrop-filter: contrast(0.3);
+        backdrop-filter: saturate(2) brightness(1.5);
     }
 }
